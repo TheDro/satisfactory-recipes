@@ -9,19 +9,19 @@
       </tr>
       <tr v-for="(recipe, index) in state.recipes" :key="index">
         <td>
-          <div>{{recipe.name}}</div>
+          <div>{{formatName(recipe.name)}}</div>
         </td>
         <td>
           <ul class="m-0">
             <li v-for="ingredient in recipe.ingredients" :key="ingredient.name">
-              {{round(ingredient.quantity, 2)}} x {{ingredient.name}}
+              {{round(ingredient.quantity, 2)}} x {{formatName(ingredient.name)}}
             </li>
           </ul>
         </td>
         <td>
           <ul class="m-0">
             <li v-for="ingredient in convertedRecipes[index].ingredients" :key="ingredient.name">
-              {{round(ingredient.quantity, 2)}} x {{ingredient.name}}
+              {{round(ingredient.quantity, 2)}} x {{formatName(ingredient.name)}}
             </li>
           </ul>
         </td>
@@ -93,11 +93,15 @@ export default {
     })
 
 
+    function formatName(name) {
+      return _.capitalize(_.lowerCase(name))
+    }
+
     function round(value, digits = 0) {
       return Math.round(value*10**digits)/10**digits
     }
 
-    return {state, round, convertedRecipes}
+    return {state, round, convertedRecipes, formatName}
   }
 }
 </script>
