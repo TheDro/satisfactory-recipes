@@ -152,3 +152,6 @@ window.recipes = recipes
 window.baseRecipes = baseRecipes
 
 console.log(JSON.stringify(baseRecipes, null, 2))
+
+
+export {baseRecipes, recipes}
