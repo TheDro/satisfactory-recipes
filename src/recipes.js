@@ -9,6 +9,21 @@ let recipes = [{
     name: 'aiLimiter',
     ingredients: [{name: 'copperSheet', quantity: 5},{name: 'quickWire', quantity: 20}],
 },{
+    name: 'alcladAluminumSheet',
+    ingredients: [{name: 'aluminumIngot', quantity: 2},{name: 'copperIngot', quantity: 3/4}],
+},{
+    name: 'aluminaSolution',
+    ingredients: [{name: 'bauxite', quantity: 7/8},{name: 'water', quantity: 5/4}],
+},{
+    name: 'aluminumIngot',
+    ingredients: [{name: 'aluminumScrap', quantity: 3},{name: 'silica', quantity: 7/4}],
+},{
+    name: 'aluminumScrap',
+    ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'petroleumCoke', quantity: 1/6}],
+},{
+    name: 'bauxite',
+    ingredients: [],
+},{
     name: 'cateriumOre',
     ingredients: [],
 },{
@@ -33,6 +48,9 @@ let recipes = [{
     name: 'copperSheet',
     ingredients: [{name: 'copperIngot', quantity: 2}],
 },{
+    name: 'crudeOil',
+    ingredients: [],
+},{
     name: 'crystalOscillator',
     ingredients: [{name: 'quartzCrystal', quantity: 18},{name: 'cable', quantity: 14},{name: 'reinforcedIronPlate', quantity: 2.5}],
 },{
@@ -41,6 +59,9 @@ let recipes = [{
 },{
     name: 'heavyModularFrame',
     ingredients: [{name: 'modularFrame', quantity: 5},{name: 'steelPipe', quantity: 15},{name: 'encasedIndustrialBeam', quantity: 5},{name: 'screw', quantity: 100}],
+},{
+    name: 'heavyOilResidue',
+    ingredients: [{name: 'crudeOil', quantity: 3}],
 },{
     name: 'ironPlate',
     ingredients: [{name: 'ironIngot', quantity: 3/2}],
@@ -63,6 +84,9 @@ let recipes = [{
     name: 'motor',
     ingredients: [{name: 'rotor', quantity: 2},{name: 'stator', quantity: 2}],
 },{
+    name: 'petroleumCoke',
+    ingredients: [{name: 'heavyOilResidue', quantity: 1/3}],
+},{
     name: 'quartzCrystal',
     ingredients: [{name: 'rawQuartz', quantity: 5/3}],
 },{
@@ -81,6 +105,9 @@ let recipes = [{
     name: 'screw',
     ingredients: [{name: 'ironRod', quantity: 1/4}],
 },{
+    name: 'silica',
+    ingredients: [{name: 'rawQuartz', quantity: 3/5}],
+},{
     name: 'smartPlating',
     ingredients: [{name: 'reinforcedIronPlate', quantity: 1},{name: 'rotor', quantity: 1}],
 },{
@@ -98,6 +125,9 @@ let recipes = [{
 },{
     name: 'versatileFramework',
     ingredients: [{name: 'modularFrame', quantity: 1/2},{name: 'steelBeam', quantity: 6}],
+},{
+    name: 'water',
+    ingredients: [],
 }]
 
 //     for (let i=0; i<10; i++) {

@@ -20,7 +20,8 @@
         </td>
         <td>
           <ul class="m-0">
-            <li v-for="ingredient in convertedRecipes[index].ingredients" :key="ingredient.name">
+            <li :class="{error: !!ingredient.warning}"
+              v-for="ingredient in convertedRecipes[index].ingredients" :key="ingredient.name">
               {{round(ingredient.quantity, 2)}} x {{formatName(ingredient.name)}}
             </li>
           </ul>
@@ -53,8 +54,9 @@ export default {
           let newIngredients = oldIngredients.map((ingredient) => {
             let nextRecipe = _.find(recipes, {name: ingredient.name})
             if (!nextRecipe) {
-              console.log({recipe, ingredient})
-              debugger
+              console.log({recipe, ingredient, name: ingredient.name})
+              ingredient.warning = "Couldn't find match"
+              return ingredient
             }
             if (nextRecipe.ingredients.length === 0) {
               return ingredient
@@ -124,6 +126,10 @@ export default {
 .condensed th,
 .condensed td {
   padding: 0.25rem;
+}
+
+.error {
+  color: red;
 }
 
 </style>
