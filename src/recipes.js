@@ -9,6 +9,9 @@ let recipes = [{
     name: 'aiLimiter',
     ingredients: [{name: 'copperSheet', quantity: 5},{name: 'quickWire', quantity: 20}],
 },{
+    name: 'adaptiveControlUnit',
+    ingredients: [{name: 'automatedWiring', quantity: 7.5},{name: 'circuitBoard', quantity: 5},{name: 'heavyModularFrame', quantity: 1},{name: 'computer', quantity: 1}],
+},{
     name: 'alcladAluminumSheet',
     ingredients: [{name: 'aluminumIngot', quantity: 2},{name: 'copperIngot', quantity: 3/4}],
 },{
@@ -21,8 +24,17 @@ let recipes = [{
     name: 'aluminumScrap',
     ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'petroleumCoke', quantity: 1/6}],
 },{
+    name: 'automatedWiring',
+    ingredients: [{name: 'stator', quantity: 1},{name: 'cable', quantity: 20}],
+},{
+    name: 'battery',
+    ingredients: [{name: 'alcladAluminumSheet', quantity: 8/3},{name: 'copperWire', quantity: 16/3},{name: 'sulfur', quantity: 20/3},{name: 'plastic', quantity: 8/3}],
+},{
     name: 'bauxite',
     ingredients: [],
+},{
+    name: 'blackPowder',
+    ingredients: [{name: 'coal', quantity: 1},{name: 'sulfur', quantity: 2}],
 },{
     name: 'cateriumOre',
     ingredients: [],
@@ -30,8 +42,14 @@ let recipes = [{
     name: 'cateriumIngot',
     ingredients: [{name: 'cateriumOre', quantity: 3}],
 },{
+    name: 'circuitBoard',
+    ingredients: [{name: 'copperSheet', quantity: 2},{name: 'plastic', quantity: 4}],
+},{
     name: 'coal',
     ingredients: [],
+},{
+    name: 'computer',
+    ingredients: [{name: 'circuitBoard', quantity: 10},{name: 'cable', quantity: 9},{name: 'plastic', quantity:18},{name: 'screw', quantity: 130}],
 },{
     name: 'concrete',
     ingredients: [{name: 'limestone', quantity: 3}],
@@ -57,8 +75,14 @@ let recipes = [{
     name: 'encasedIndustrialBeam',
     ingredients: [{name: 'concrete', quantity: 5},{name: 'steelBeam', quantity: 4}],
 },{
+    name: 'heatSink',
+    ingredients: [{name: 'alcladAluminumSheet', quantity: 4},{name: 'rubber', quantity: 7}],
+},{
     name: 'heavyModularFrame',
     ingredients: [{name: 'modularFrame', quantity: 5},{name: 'steelPipe', quantity: 15},{name: 'encasedIndustrialBeam', quantity: 5},{name: 'screw', quantity: 100}],
+},{
+    name: 'highSpeedConnector',
+    ingredients: [{name: 'quickWire', quantity: 56},{name: 'cable', quantity: 10},{name: 'circuitBoard', quantity: 1}],
 },{
     name: 'heavyOilResidue',
     ingredients: [{name: 'crudeOil', quantity: 3}],
@@ -77,6 +101,9 @@ let recipes = [{
 },{
     name: 'limestone',
     ingredients: [],
+},{
+    name: 'modularEngine',
+    ingredients: [{name: 'engine', quantity: 2},{name: 'rubber', quantity: 15},{name: 'smartPlating', quantity: 2}],
 },{
     name: 'modularFrame',
     ingredients: [{name: 'ironRod', quantity: 6},{name: 'reinforcedIronPlate', quantity: 3/2}],
@@ -123,53 +150,15 @@ let recipes = [{
     name: 'steelPipe',
     ingredients: [{name: 'steelIngot', quantity: 3/2}],
 },{
+    name: 'sulfur',
+    ingredients: [],
+},{
     name: 'versatileFramework',
     ingredients: [{name: 'modularFrame', quantity: 1/2},{name: 'steelBeam', quantity: 6}],
 },{
     name: 'water',
     ingredients: [],
 }]
-
-//     for (let i=0; i<10; i++) {
-
-//         let newIngredients = oldIngredients.map((ingredient) => {
-//             let nextRecipe = _.find(recipes, {name: ingredient.name})
-//             if (!nextRecipe) {
-//                 console.log({recipe, ingredient})
-//                 debugger
-//             }
-//             if (nextRecipe.ingredients.length === 0) {
-//                 return ingredient
-//             }
-//             return nextRecipe.ingredients.map((ing) => {
-//                 return {name: ing.name, quantity: ingredient.quantity*ing.quantity}
-//             })
-//         })
-
-//         newIngredients = _.flatMap(newIngredients)
-
-//         oldIngredients = newIngredients
-
-//     }
-//     return {name: recipe.name, ingredients: oldIngredients}
-// })
-
-// // Consolidate
-//     let newIngredients = []
-//     recipe.ingredients.forEach((ingredient) => {
-//         let index = _.findIndex(newIngredients, {name: ingredient.name})
-//         if (index === -1) {
-//             newIngredients.push(ingredient)
-//         } else {
-//             newIngredients[index].quantity += ingredient.quantity
-//         }
-//     })
-//     return Object.assign(recipe, {ingredients: newIngredients})
-// })
-
-
-
-// window.recipes = recipes
 
 
 
