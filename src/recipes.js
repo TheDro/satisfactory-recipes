@@ -104,54 +104,54 @@ let recipes = [{
     base: false
 }]
 
-// Convert to base resources
-let baseRecipes = recipes.map((recipe) => {
-    let baseRecipe = _.cloneDeep(recipe)
-    let oldIngredients = baseRecipe.ingredients
-    for (let i=0; i<10; i++) {
+// // Convert to base resources
+// let baseRecipes = recipes.map((recipe) => {
+//     let baseRecipe = _.cloneDeep(recipe)
+//     let oldIngredients = baseRecipe.ingredients
+//     for (let i=0; i<10; i++) {
 
-        let newIngredients = oldIngredients.map((ingredient) => {
-            let nextRecipe = _.find(recipes, {name: ingredient.name})
-            if (!nextRecipe) {
-                console.log({recipe, ingredient})
-                debugger
-            }
-            if (nextRecipe.ingredients.length === 0) {
-                return ingredient
-            }
-            return nextRecipe.ingredients.map((ing) => {
-                return {name: ing.name, quantity: ingredient.quantity*ing.quantity}
-            })
-        })
+//         let newIngredients = oldIngredients.map((ingredient) => {
+//             let nextRecipe = _.find(recipes, {name: ingredient.name})
+//             if (!nextRecipe) {
+//                 console.log({recipe, ingredient})
+//                 debugger
+//             }
+//             if (nextRecipe.ingredients.length === 0) {
+//                 return ingredient
+//             }
+//             return nextRecipe.ingredients.map((ing) => {
+//                 return {name: ing.name, quantity: ingredient.quantity*ing.quantity}
+//             })
+//         })
 
-        newIngredients = _.flatMap(newIngredients)
+//         newIngredients = _.flatMap(newIngredients)
 
-        oldIngredients = newIngredients
+//         oldIngredients = newIngredients
 
-    }
-    return {name: recipe.name, ingredients: oldIngredients}
-})
+//     }
+//     return {name: recipe.name, ingredients: oldIngredients}
+// })
 
-// Consolidate
-baseRecipes = baseRecipes.map((recipe) => {
-    let newIngredients = []
-    recipe.ingredients.forEach((ingredient) => {
-        let index = _.findIndex(newIngredients, {name: ingredient.name})
-        if (index === -1) {
-            newIngredients.push(ingredient)
-        } else {
-            newIngredients[index].quantity += ingredient.quantity
-        }
-    })
-    return Object.assign(recipe, {ingredients: newIngredients})
-})
-
-
-
-window.recipes = recipes
-window.baseRecipes = baseRecipes
-
-console.log(JSON.stringify(baseRecipes, null, 2))
+// // Consolidate
+// baseRecipes = baseRecipes.map((recipe) => {
+//     let newIngredients = []
+//     recipe.ingredients.forEach((ingredient) => {
+//         let index = _.findIndex(newIngredients, {name: ingredient.name})
+//         if (index === -1) {
+//             newIngredients.push(ingredient)
+//         } else {
+//             newIngredients[index].quantity += ingredient.quantity
+//         }
+//     })
+//     return Object.assign(recipe, {ingredients: newIngredients})
+// })
 
 
-export {baseRecipes, recipes}
+
+// window.recipes = recipes
+// window.baseRecipes = baseRecipes
+
+// console.log(JSON.stringify(baseRecipes, null, 2))
+
+
+export {recipes}
