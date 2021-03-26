@@ -103,7 +103,7 @@ let recipes = [{
     ingredients: [],
 },{
     name: 'modularEngine',
-    ingredients: [{name: 'engine', quantity: 2},{name: 'rubber', quantity: 15},{name: 'smartPlating', quantity: 2}],
+    ingredients: [{name: 'motor', quantity: 2},{name: 'rubber', quantity: 15},{name: 'smartPlating', quantity: 2}],
 },{
     name: 'modularFrame',
     ingredients: [{name: 'ironRod', quantity: 6},{name: 'reinforcedIronPlate', quantity: 3/2}],
@@ -113,6 +113,21 @@ let recipes = [{
 },{
     name: 'petroleumCoke',
     ingredients: [{name: 'heavyOilResidue', quantity: 1/3}],
+},{
+    name: 'plastic',
+    ingredients: [{name: 'crudeOil', quantity: 3/2}],
+},{
+    name: 'radioControlUnit',
+    ingredients: [{name: 'heatSink', quantity: 4},{name: 'rubber', quantity: 16},{name: 'crystalOscillator', quantity: 1},{name: 'computer', quantity: 1}],
+},{
+    name: 'rubber',
+    ingredients: [{name: 'crudeOil', quantity: 3/2}],
+},{
+    name: 'sulfuricAcid',
+    ingredients: [{name: 'sulfur', quantity: 0.5},{name: 'water', quantity: 0.5}],
+},{
+    name: 'supercomputer',
+    ingredients: [{name: 'computer', quantity: 2},{name: 'aiLimiter', quantity: 2},{name: 'highSpeedConnector', quantity: 3},{name: 'plastic', quantity: 28}],
 },{
     name: 'quartzCrystal',
     ingredients: [{name: 'rawQuartz', quantity: 5/3}],

@@ -132,4 +132,13 @@ export default {
   color: red;
 }
 
+* {
+  background-color: #333;
+  color: #eee;
+}
+
+th, td {
+  border-bottom: 1px solid #ccc;
+}
+
 </style>
