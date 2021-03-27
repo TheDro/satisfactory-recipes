@@ -27,6 +27,9 @@ let recipes = [{
     name: 'aluminumScrap',
     ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'coal', quantity: 1/3}],
 },{
+    name: 'assemblyDirectorSystem',
+    ingredients: [{name: 'adaptiveControlUnit', quantity: 2},{name: 'supercomputer', quantity: 1}],
+},{
     name: 'automatedWiring',
     ingredients: [{name: 'stator', quantity: 1},{name: 'cable', quantity: 20}],
 },{
@@ -57,11 +60,17 @@ let recipes = [{
     name: 'concrete',
     ingredients: [{name: 'limestone', quantity: 3}],
 },{
+    name: 'coolingSystem',
+    ingredients: [{name: 'heatSink', quantity: 2},{name: 'rubber', quantity: 2},{name: 'water', quantity: 5},{name: 'nitrogenGas', quantity: 25}],
+},{
     name: 'copperOre',
     ingredients: [],
 },{
     name: 'copperIngot',
     ingredients: [{name: 'copperOre', quantity: 1}],
+},{
+    name: 'copperPowder',
+    ingredients: [{name: 'copperIngot', quantity: 6}],
 },{
     name: 'copperWire',
     ingredients: [{name: 'copperIngot', quantity: 0.5}],
@@ -75,8 +84,14 @@ let recipes = [{
     name: 'crystalOscillator',
     ingredients: [{name: 'quartzCrystal', quantity: 18},{name: 'cable', quantity: 14},{name: 'reinforcedIronPlate', quantity: 2.5}],
 },{
+    name: 'electromagneticControlRod',
+    ingredients: [{name: 'stator', quantity: 3/2},{name: 'aiLimiter', quantity: 1}],
+},{
     name: 'encasedIndustrialBeam',
     ingredients: [{name: 'concrete', quantity: 5},{name: 'steelBeam', quantity: 4}],
+},{
+    name: 'fusedModularFrame',
+    ingredients: [{name: 'heavyModularFrame', quantity: 1},{name: 'aluminumCasing', quantity: 50},{name: 'nitrogenGas', quantity: 25}],
 },{
     name: 'heatSink',
     ingredients: [{name: 'alcladAluminumSheet', quantity: 4},{name: 'copperSheet', quantity: 9/2}],
@@ -105,6 +120,9 @@ let recipes = [{
     name: 'limestone',
     ingredients: [],
 },{
+    name: 'magneticFieldGenerator',
+    ingredients: [{name: 'versatileFramework', quantity: 5/2},{name: 'electromagneticControlRod', quantity: 1},{name: 'battery', quantity: 5}],
+},{
     name: 'modularEngine',
     ingredients: [{name: 'motor', quantity: 2},{name: 'rubber', quantity: 15},{name: 'smartPlating', quantity: 2}],
 },{
@@ -114,11 +132,20 @@ let recipes = [{
     name: 'motor',
     ingredients: [{name: 'rotor', quantity: 2},{name: 'stator', quantity: 2}],
 },{
+    name: 'nitrogenGas',
+    ingredients: [],
+},{
+    name: 'nuclearPasta',
+    ingredients: [{name: 'copperPowder', quantity: 200},{name: 'pressureConversionCube', quantity: 1}],
+},{
     name: 'petroleumCoke',
     ingredients: [{name: 'heavyOilResidue', quantity: 1/3}],
 },{
     name: 'plastic',
     ingredients: [{name: 'crudeOil', quantity: 3/2}],
+},{
+    name: 'pressureConversionCube',
+    ingredients: [{name: 'fusedModularFrame', quantity: 1},{name: 'radioControlUnit', quantity: 2}],
 },{
     name: 'radioControlUnit',
     ingredients: [{name: 'heatSink', quantity: 4},{name: 'rubber', quantity: 16},{name: 'crystalOscillator', quantity: 1},{name: 'computer', quantity: 1}],
@@ -131,6 +158,12 @@ let recipes = [{
 },{
     name: 'supercomputer',
     ingredients: [{name: 'computer', quantity: 2},{name: 'aiLimiter', quantity: 2},{name: 'highSpeedConnector', quantity: 3},{name: 'plastic', quantity: 28}],
+},{
+    name: 'thermalPropulsionRocket',
+    ingredients: [{name: 'modularEngine', quantity: 2.5},{name: 'turboMotor', quantity: 1},{name: 'coolingSystem', quantity: 3},{name: 'fusedModularFrame', quantity: 1}],
+},{
+    name: 'turboMotor',
+    ingredients: [{name: 'coolingSystem', quantity: 4},{name: 'radioControlUnit', quantity: 2},{name: 'motor', quantity: 4},{name: 'rubber', quantity: 24}],
 },{
     name: 'quartzCrystal',
     ingredients: [{name: 'rawQuartz', quantity: 5/3}],
