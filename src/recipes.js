@@ -13,22 +13,25 @@ let recipes = [{
     ingredients: [{name: 'automatedWiring', quantity: 7.5},{name: 'circuitBoard', quantity: 5},{name: 'heavyModularFrame', quantity: 1},{name: 'computer', quantity: 1}],
 },{
     name: 'alcladAluminumSheet',
-    ingredients: [{name: 'aluminumIngot', quantity: 2},{name: 'copperIngot', quantity: 3/4}],
+    ingredients: [{name: 'aluminumIngot', quantity: 1},{name: 'copperIngot', quantity: 1/3}],
 },{
     name: 'aluminaSolution',
-    ingredients: [{name: 'bauxite', quantity: 7/8},{name: 'water', quantity: 5/4}],
+    ingredients: [{name: 'bauxite', quantity: 1},{name: 'water', quantity: 1.5}],
+},{
+    name: 'aluminumCasing',
+    ingredients: [{name: 'aluminumIngot', quantity: 1.5}],
 },{
     name: 'aluminumIngot',
-    ingredients: [{name: 'aluminumScrap', quantity: 3},{name: 'silica', quantity: 7/4}],
+    ingredients: [{name: 'aluminumScrap', quantity: 1.5},{name: 'silica', quantity: 5/4}],
 },{
     name: 'aluminumScrap',
-    ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'petroleumCoke', quantity: 1/6}],
+    ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'coal', quantity: 1/3}],
 },{
     name: 'automatedWiring',
     ingredients: [{name: 'stator', quantity: 1},{name: 'cable', quantity: 20}],
 },{
     name: 'battery',
-    ingredients: [{name: 'alcladAluminumSheet', quantity: 8/3},{name: 'copperWire', quantity: 16/3},{name: 'sulfur', quantity: 20/3},{name: 'plastic', quantity: 8/3}],
+    ingredients: [{name: 'sulfuricAcid', quantity: 3},{name: 'aluminaSolution', quantity: 2},{name: 'aluminumCasing', quantity: 1}],
 },{
     name: 'bauxite',
     ingredients: [],
@@ -76,7 +79,7 @@ let recipes = [{
     ingredients: [{name: 'concrete', quantity: 5},{name: 'steelBeam', quantity: 4}],
 },{
     name: 'heatSink',
-    ingredients: [{name: 'alcladAluminumSheet', quantity: 4},{name: 'rubber', quantity: 7}],
+    ingredients: [{name: 'alcladAluminumSheet', quantity: 4},{name: 'copperSheet', quantity: 9/2}],
 },{
     name: 'heavyModularFrame',
     ingredients: [{name: 'modularFrame', quantity: 5},{name: 'steelPipe', quantity: 15},{name: 'encasedIndustrialBeam', quantity: 5},{name: 'screw', quantity: 100}],
