@@ -23,3 +23,5 @@ git commit -m 'deploy'
 git push -f git@github.com:TheDro/satisfactory-recipes.git master:gh-pages
 
 cd -
+
+echo https://thedro.github.io/satisfactory-recipes
