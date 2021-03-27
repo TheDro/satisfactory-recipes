@@ -9,7 +9,8 @@
       </tr>
       <tr v-for="(recipe, index) in state.recipes" :key="index">
         <td>
-          <div>{{formatName(recipe.name)}}</div>
+          <input class="mx-2" type="checkbox" v-model="recipe.active" />
+          <span>{{formatName(recipe.name)}}</span>
         </td>
         <td>
           <ul class="m-0">
@@ -37,6 +38,11 @@ import {recipes} from './recipes'
 import {reactive, computed} from 'vue'
 import _ from 'lodash'
 
+// recipes = _.cloneDeep(recipes)
+recipes.forEach((recipe) => {
+  recipe.active = true
+})
+
 export default {
   setup() {
     let state = reactive({
@@ -52,9 +58,8 @@ export default {
         for (let i=0; i<10; i++) {
 
           let newIngredients = oldIngredients.map((ingredient) => {
-            let nextRecipe = _.find(recipes, {name: ingredient.name})
+            let nextRecipe = _.find(recipes, {name: ingredient.name, active: true})
             if (!nextRecipe) {
-              console.log({recipe, ingredient, name: ingredient.name})
               ingredient.warning = "Couldn't find match"
               return ingredient
             }
@@ -123,13 +128,18 @@ export default {
   margin: 0;
 }
 
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .condensed th,
 .condensed td {
   padding: 0.25rem;
 }
 
 .error {
-  color: red;
+  color: #f66;
 }
 
 * {
