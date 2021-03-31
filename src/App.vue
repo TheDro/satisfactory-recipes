@@ -40,11 +40,12 @@
 <script>
 import 'marx-css/css/marx.css'
 import {recipes} from './recipes'
+// import {altRecipes} from "./alt-recipes";
 import {reactive, computed} from 'vue'
 import _ from 'lodash'
 
 recipes.forEach((recipe) => {
-  recipe.active = true
+  recipe.active = !recipe.altName
 })
 
 export default {

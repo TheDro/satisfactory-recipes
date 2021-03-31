@@ -1,4 +1,8 @@
-bleh = [
+import _ from 'lodash'
+import JSON5 from 'json5'
+window.JSON5 = JSON5
+
+let altRecipes = [
 {altName: "Copper Alloy Ingot", recipeName: "Copper Ingot", ingredients: [{name: "Copper Ore", quantity: 50.0},{name: "Iron Ore", quantity: 25.0}], production: 100.0 },
 {altName: "Fine Black Powder (Gun Powder)", recipeName: "Black Powder", ingredients: [{name: "Sulfur", quantity: 7.5},{name: "Compacted Coal", quantity: 3.8}], production: 15.0 },
 {altName: "Caterium Wire", recipeName: "Wire", ingredients: [{name: "Caterium Ingot", quantity: 15.0}], production: 120.0 },
@@ -61,7 +65,7 @@ bleh = [
 {altName: "Caterium Circuit Board", recipeName: "Circuit Board", ingredients: [{name: "Plastic", quantity: 12.5},{name: "Quickwire", quantity: 37.5}], production: 8.8 },
 {altName: "Silicone High-Speed Connector", ingredients: [{name: "High-Speed Connector"},{name: "Quickwire", quantity: 90.0},{name: "Silica", quantity: 37.5},{name: "Circuit Board", quantity: 3.0}], production: 3.0 },
 {altName: "Polyester Fabric", recipeName: "Fabric", ingredients: [{name: "Polymer Resin", quantity: 80.0},{name: "Water", quantity: 50.0}], production: 5.0 },
-{altName: "Insulated Crystal Oscillator", recipeName: "Crystal Oscillator", ingredients: [{name: "Quartz Crystal", quantity: 18.8},{name: "Rubber", quantity: 13.1},{name: "A.I. Limiter", quantity: 1.9], production: 1.9 },
+{altName: "Insulated Crystal Oscillator", recipeName: "Crystal Oscillator", ingredients: [{name: "Quartz Crystal", quantity: 18.8},{name: "Rubber", quantity: 13.1},{name: "A.I. Limiter", quantity: 1.9}], production: 1.9 },
 {altName: "Silicone Circuit Board", recipeName: "Circuit Board", ingredients: [{name: "Copper Sheet", quantity: 27.5},{name: "Silica", quantity: 27.5}], production: 12.5 },
 {altName: "Diluted Packaged Fuel", recipeName: "Packaged Fuel", ingredients: [{name: "Heavy Oil Residue", quantity: 30.0},{name: "Packaged Water", quantity: 60.0}], production: 60.0 },
 {altName: "Turbo Heavy Fuel", recipeName: "Turbofuel", ingredients: [{name: "Heavy Oil Residue", quantity: 37.5},{name: "Compacted Coal", quantity: 30.0}], production: 30.0 },
@@ -96,3 +100,26 @@ bleh = [
 {altName: "Fertile Uranium", version: "Experimental", recipeName: "Non-fissile Uranium", ingredients: [{name: "Uranium", quantity: 25.0},{name: "Nuclear Waste", quantity: 50.0},{name: "Nitric Acid", quantity: 75.0},{name: "Sulfuric Acid", quantity: 75.0}], production: 100.0 },
 {altName: "Turbo Pressure Motor", version: "Experimental", recipeName: "Turbo Motor", ingredients: [{name: "Motor", quantity: 7.5},{name: "Pressure Conversion Cube", quantity: 3.8},{name: "Packaged Nitrogen Gas", quantity: 56.3},{name: "Stator", quantity: 22.5}], production: 3.8 },
 ]
+
+
+let recipes = _.sortBy(altRecipes, 'recipeName')
+
+recipes = recipes
+.filter((recipe) => {
+  return recipe.version !== "Stable"
+})
+.map((recipe) => {
+  return {
+    name: _.camelCase(recipe.recipeName),
+    altName: recipe.altName,
+    ingredients: recipe.ingredients.map((ingredient) => {
+      return {name: _.camelCase(ingredient.name), quantity: `${recipe.production}/${ingredient.quantity}`}
+    })
+  }
+})
+
+window.recipes = recipes
+console.log({recipes})
+console.log(JSON5.stringify(recipes))
+
+export {altRecipes}
