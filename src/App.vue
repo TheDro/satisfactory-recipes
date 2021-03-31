@@ -1,6 +1,11 @@
 <template>
-  <div>
+  <div class="container">
     <h2>Satisfactory Recipes</h2>
+    <input type="checkbox" v-model="state.consolidate" />
+    <label>consolidate ingredients</label>
+    <input type="checkbox" v-model="state.alternates" />
+    <label>include alternates</label>
+
     <table class="condensed">
       <tr>
         <th>Material</th>
@@ -9,7 +14,7 @@
       </tr>
       <tr v-for="(recipe, index) in state.recipes" :key="index">
         <td>
-          <input class="mx-2" type="checkbox" v-model="recipe.active" />
+          <input type="checkbox" v-model="recipe.active" />
           <span>{{formatName(recipe.name)}}</span>
         </td>
         <td>
@@ -47,6 +52,7 @@ export default {
     let state = reactive({
       recipes: recipes,
       consolidate: true,
+      alternates: false
     })
 
     let convertedRecipes = computed(() => {
@@ -150,6 +156,16 @@ export default {
 
 th, td {
   border-bottom: 1px solid #ccc;
+}
+
+input[type="checkbox"] {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.container {
+  margin: auto;
+  max-width: 768px; /*md*/
 }
 
 </style>

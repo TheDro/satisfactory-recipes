@@ -3,9 +3,6 @@ import _ from 'lodash'
 
 
 let recipes = [{
-    name: 'cable',
-    ingredients: [{name: 'copperWire', quantity: 2}],
-},{
     name: 'aiLimiter',
     ingredients: [{name: 'copperSheet', quantity: 5},{name: 'quickWire', quantity: 20}],
 },{
@@ -41,6 +38,9 @@ let recipes = [{
 },{
     name: 'blackPowder',
     ingredients: [{name: 'coal', quantity: 1},{name: 'sulfur', quantity: 2}],
+},{
+    name: 'cable',
+    ingredients: [{name: 'copperWire', quantity: 2}],
 },{
     name: 'cateriumOre',
     ingredients: [],
