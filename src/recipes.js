@@ -1,7 +1,7 @@
 
 let recipes = [{
     name: 'aiLimiter',
-    ingredients: [{name: 'copperSheet', quantity: 5},{name: 'quickWire', quantity: 20}],
+    ingredients: [{name: 'copperSheet', quantity: 5},{name: 'quickwire', quantity: 20}],
 },{
     name: 'adaptiveControlUnit',
     ingredients: [{name: 'automatedWiring', quantity: 7.5},{name: 'circuitBoard', quantity: 5},{name: 'heavyModularFrame', quantity: 1},{name: 'computer', quantity: 1}],
@@ -31,6 +31,9 @@ let recipes = [{
     ingredients: [{name: 'sulfuricAcid', quantity: 3},{name: 'aluminaSolution', quantity: 2},{name: 'aluminumCasing', quantity: 1}],
 },{
     name: 'bauxite',
+    ingredients: [],
+},{
+    name: 'biomass',
     ingredients: [],
 },{
     name: 'blackPowder',
@@ -97,7 +100,7 @@ let recipes = [{
     ingredients: [{name: 'modularFrame', quantity: 5},{name: 'steelPipe', quantity: 15},{name: 'encasedIndustrialBeam', quantity: 5},{name: 'screw', quantity: 100}],
 },{
     name: 'highSpeedConnector',
-    ingredients: [{name: 'quickWire', quantity: 56},{name: 'cable', quantity: 10},{name: 'circuitBoard', quantity: 1}],
+    ingredients: [{name: 'quickwire', quantity: 56},{name: 'cable', quantity: 10},{name: 'circuitBoard', quantity: 1}],
 },{
     name: 'heavyOilResidue',
     ingredients: [{name: 'crudeOil', quantity: 3}],
@@ -165,7 +168,7 @@ let recipes = [{
     name: 'quartzCrystal',
     ingredients: [{name: 'rawQuartz', quantity: 5/3}],
 },{
-    name: 'quickWire',
+    name: 'quickwire',
     ingredients: [{name: 'cateriumIngot', quantity: 1/5}],
 },{
     name: 'reinforcedIronPlate',
@@ -231,11 +234,11 @@ let recipes = [{
 },{
   name: 'automatedWiring',
   altName: 'High-Speed Wiring',
-  ingredients: [{name: 'stator', quantity: 3.8/7.5}, {name: 'wire', quantity: 75/7.5}, {name: 'highSpeedConnector', quantity: 1.9/7.5}]
+  ingredients: [{name: 'stator', quantity: 3.8/7.5}, {name: 'copperWire', quantity: 75/7.5}, {name: 'highSpeedConnector', quantity: 1.9/7.5}]
 },{
   name: 'battery',
   altName: 'Classic Battery',
-  ingredients: [{name: 'sulfur', quantity: 45/30}, {name: 'alcladAluminumSheet', quantity: 52.5/30}, {name: 'plastic', quantity: 60/30}, {name: 'wire', quantity: 90/30}]
+  ingredients: [{name: 'sulfur', quantity: 45/30}, {name: 'alcladAluminumSheet', quantity: 52.5/30}, {name: 'plastic', quantity: 60/30}, {name: 'copperWire', quantity: 90/30}]
 },{
   name: 'beacon',
   altName: 'Signal Beacon',
@@ -247,11 +250,11 @@ let recipes = [{
 },{
   name: 'cable',
   altName: 'Coated Cable',
-  ingredients: [{name: 'wire', quantity: 37.5/67.5}, {name: 'heavyOilResidue', quantity: 15/67.5}]
+  ingredients: [{name: 'copperWire', quantity: 37.5/67.5}, {name: 'heavyOilResidue', quantity: 15/67.5}]
 },{
   name: 'cable',
   altName: 'Insulated Cable (Rubber Cable)',
-  ingredients: [{name: 'wire', quantity: 45/100}, {name: 'rubber', quantity: 30/100}]
+  ingredients: [{name: 'copperWire', quantity: 45/100}, {name: 'rubber', quantity: 30/100}]
 },{
   name: 'cable',
   altName: 'Quickwire Cable',
@@ -323,7 +326,7 @@ let recipes = [{
 },{
   name: 'crystalOscillator',
   altName: 'Insulated Crystal Oscillator',
-  ingredients: [{name: 'quartzCrystal', quantity: 18.8/1.9}, {name: 'rubber', quantity: 13.1/1.9}, {name: 'aILimiter', quantity: 1.9/1.9}]
+  ingredients: [{name: 'quartzCrystal', quantity: 18.8/1.9}, {name: 'rubber', quantity: 13.1/1.9}, {name: 'aiLimiter', quantity: 1.9/1.9}]
 },{
   name: 'electromagneticControlRod',
   altName: 'Electromagnetic Connection Rod',
@@ -463,7 +466,7 @@ let recipes = [{
 },{
   name: 'reinforcedIronPlate',
   altName: 'Stitched Iron Plate',
-  ingredients: [{name: 'ironPlate', quantity: 18.8/5.6}, {name: 'wire', quantity: 37.5/5.6}]
+  ingredients: [{name: 'ironPlate', quantity: 18.8/5.6}, {name: 'copperWire', quantity: 37.5/5.6}]
 },{
   name: 'reinforcedIronPlate',
   altName: 'Adhered Iron Plate',
@@ -475,7 +478,7 @@ let recipes = [{
 },{
   name: 'rotor',
   altName: 'Steel Rotor',
-  ingredients: [{name: 'steelPipe', quantity: 10/5}, {name: 'wire', quantity: 30/5}]
+  ingredients: [{name: 'steelPipe', quantity: 10/5}, {name: 'copperWire', quantity: 30/5}]
 },{
   name: 'rubber',
   altName: 'Recycled Rubber',
@@ -519,7 +522,7 @@ let recipes = [{
 },{
   name: 'supercomputer',
   altName: 'Super-State Computer',
-  ingredients: [{name: 'computer', quantity: 3.6/2.4}, {name: 'electromagneticControlRod', quantity: 2.4/2.4}, {name: 'battery', quantity: 24/2.4}, {name: 'wire', quantity: 54/2.4}]
+  ingredients: [{name: 'computer', quantity: 3.6/2.4}, {name: 'electromagneticControlRod', quantity: 2.4/2.4}, {name: 'battery', quantity: 24/2.4}, {name: 'copperWire', quantity: 54/2.4}]
 },{
   name: 'turboMotor',
   altName: 'Turbo Rigour Motor',
@@ -545,19 +548,19 @@ let recipes = [{
   altName: 'Flexible Framework',
   ingredients: [{name: 'modularFrame', quantity: 3.8/7.5}, {name: 'steelBeam', quantity: 22.5/7.5}, {name: 'rubber', quantity: 30/7.5}]
 },{
-  name: 'wire',
+  name: 'copperWire',
   altName: 'Caterium Wire',
   ingredients: [{name: 'cateriumIngot', quantity: 15/120}]
 },{
-  name: 'wire',
+  name: 'copperWire',
   altName: 'Fused Wire',
   ingredients: [{name: 'copperIngot', quantity: 12/90}, {name: 'cateriumIngot', quantity: 3/90}]
 },{
-  name: 'wire',
+  name: 'copperWire',
   altName: 'Iron Wire',
   ingredients: [{name: 'ironIngot', quantity: 12.5/22.5}]
 },{
-  name: '',
+  name: 'highSpeedConnector',
   altName: 'Silicone High-Speed Connector',
   ingredients: [{name: 'quickwire', quantity: 90/3}, {name: 'silica', quantity: 37.5/3},{name: 'circuitBoard', quantity: 3/3}]
 }]

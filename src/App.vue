@@ -12,9 +12,9 @@
         <th>Starting Recipe</th>
         <th>Converted Recipe</th>
       </tr>
-      <tr v-for="(recipe, index) in state.recipes" :key="index">
+      <tr v-for="(recipe, index) in state.recipes" :key="index" v-show="!recipe.altName || state.alternates">
         <td>
-          <input type="checkbox" v-model="recipe.active" />
+          <input type="checkbox" :checked="recipe.active" @change="onCheckRecipe($event, recipe)"/>
           <span>{{formatName(recipe.name)}}</span>
         </td>
         <td>
@@ -116,7 +116,18 @@ export default {
       return Math.round(value*10**digits)/10**digits
     }
 
-    return {state, round, convertedRecipes, formatName}
+    function onCheckRecipe(e, targetRecipe) {
+      targetRecipe.active = e.target.checked
+      if (!targetRecipe.active) return
+
+      state.recipes.forEach((recipe) => {
+        if (recipe.name === targetRecipe.name && recipe !== targetRecipe) {
+          recipe.active = false
+        }
+      })
+    }
+
+    return {state, round, convertedRecipes, formatName, onCheckRecipe}
   }
 }
 </script>
