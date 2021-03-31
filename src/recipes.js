@@ -16,7 +16,7 @@ let recipes = [{
     ingredients: [{name: 'aluminumIngot', quantity: 1},{name: 'copperIngot', quantity: 1/3}],
 },{
     name: 'aluminaSolution',
-    ingredients: [{name: 'bauxite', quantity: 1},{name: 'water', quantity: 1.5}],
+    ingredients: [{name: 'bauxite', quantity: 1},{name: 'water', quantity: 1.5},{name: 'silica', quantity: -5/12}],
 },{
     name: 'aluminumCasing',
     ingredients: [{name: 'aluminumIngot', quantity: 1.5}],
@@ -25,7 +25,7 @@ let recipes = [{
     ingredients: [{name: 'aluminumScrap', quantity: 1.5},{name: 'silica', quantity: 5/4}],
 },{
     name: 'aluminumScrap',
-    ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'coal', quantity: 1/3}],
+    ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'coal', quantity: 1/3},{name: 'water', quantity: -1/3}],
 },{
     name: 'assemblyDirectorSystem',
     ingredients: [{name: 'adaptiveControlUnit', quantity: 2},{name: 'supercomputer', quantity: 1}],

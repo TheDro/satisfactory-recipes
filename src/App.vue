@@ -38,7 +38,6 @@ import {recipes} from './recipes'
 import {reactive, computed} from 'vue'
 import _ from 'lodash'
 
-// recipes = _.cloneDeep(recipes)
 recipes.forEach((recipe) => {
   recipe.active = true
 })
@@ -63,7 +62,7 @@ export default {
               ingredient.warning = "Couldn't find match"
               return ingredient
             }
-            if (nextRecipe.ingredients.length === 0) {
+            if (nextRecipe.ingredients.length === 0) { //|| ingredient.quantity < 0
               return ingredient
             }
             return nextRecipe.ingredients.map((ing) => {
@@ -75,29 +74,31 @@ export default {
 
           oldIngredients = newIngredients
 
+          if (state.consolidate) {
+            oldIngredients = consolidate(oldIngredients)
+          }
+
         }
         return {name: recipe.name, ingredients: oldIngredients}
       })
 
-      // Consolidate
-      if (state.consolidate) {
 
-        baseRecipes = baseRecipes.map((recipe) => {
-          let newIngredients = []
-          recipe.ingredients.forEach((ingredient) => {
-            let index = _.findIndex(newIngredients, {name: ingredient.name})
-            if (index === -1) {
-              newIngredients.push(ingredient)
-            } else {
-              newIngredients[index].quantity += ingredient.quantity
-            }
-          })
-          return Object.assign(recipe, {ingredients: newIngredients})
-        })
-      }
 
       return baseRecipes
     })
+
+    function consolidate(ingredients) {
+      let newIngredients = []
+      ingredients.forEach((ingredient) => {
+        let index = _.findIndex(newIngredients, {name: ingredient.name})
+        if (index === -1) {
+          newIngredients.push(ingredient)
+        } else {
+          newIngredients[index].quantity += ingredient.quantity
+        }
+      })
+      return newIngredients
+    }
 
 
     function formatName(name) {
