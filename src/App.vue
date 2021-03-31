@@ -4,7 +4,7 @@
     <input type="checkbox" v-model="state.consolidate" />
     <label>consolidate ingredients</label>
     <input type="checkbox" v-model="state.alternates" />
-    <label>include alternates</label>
+    <label>include alternates (WIP)</label>
 
     <table class="condensed">
       <tr>
