@@ -12,10 +12,11 @@
         <th>Starting Recipe</th>
         <th>Converted Recipe</th>
       </tr>
-      <tr v-for="(recipe, index) in state.recipes" :key="index" v-show="!recipe.altName || state.alternates">
+      <tr :class="{alternative: !!recipe.altName}" v-for="(recipe, index) in state.recipes" :key="index" v-show="!recipe.altName || state.alternates">
         <td>
           <input type="checkbox" :checked="recipe.active" @change="onCheckRecipe($event, recipe)"/>
           <span>{{formatName(recipe.name)}}</span>
+          <div style="padding: 0 2rem">{{recipe.altName}}</div>
         </td>
         <td>
           <ul class="m-0">
@@ -27,7 +28,7 @@
         <td>
           <ul class="m-0">
             <li :class="{error: !!ingredient.warning}"
-              v-for="ingredient in convertedRecipes[index].ingredients" :key="ingredient.name">
+              v-for="(ingredient, index) in convertedRecipes[index].ingredients" :key="index">
               {{round(ingredient.quantity, 2)}} x {{formatName(ingredient.name)}}
             </li>
           </ul>
@@ -161,7 +162,7 @@ export default {
   color: #f66;
 }
 
-* {
+body {
   background-color: #333;
   color: #eee;
 }
@@ -178,6 +179,10 @@ input[type="checkbox"] {
 .container {
   margin: auto;
   max-width: 768px; /*md*/
+}
+
+tr.alternative {
+  color: #ffa
 }
 
 </style>

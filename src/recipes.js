@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 
 let recipes = [{
     name: 'aiLimiter',
@@ -565,6 +567,24 @@ let recipes = [{
   ingredients: [{name: 'quickwire', quantity: 90/3}, {name: 'silica', quantity: 37.5/3},{name: 'circuitBoard', quantity: 3/3}]
 }]
 
+function sortOrder(a, b, nullFirst = true) {
+    if (_.isNil(a) && !_.isNil(b)) {
+        return nullFirst ? -1 : 1
+    } else if (_.isNil(b) && !_.isNil(a)) {
+        return nullFirst ? 1 : -1
+    } else if (a < b) {
+        return -1
+    } else if (a > b) {
+        return 1
+    } else {
+        return 0
+    }
+}
+
+recipes = recipes.sort((a,b) => {
+    let order = sortOrder(a.name, b.name)
+    return order !== 0 ? order : sortOrder(a.altName, b.altName, true)
+})
 
 
 export {recipes}
