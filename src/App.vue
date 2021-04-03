@@ -12,7 +12,8 @@
         <th>Starting Recipe</th>
         <th>Converted Recipe</th>
       </tr>
-      <tr :class="{alternative: !!recipe.altName}" v-for="(recipe, index) in state.recipes" :key="index" v-show="!recipe.altName || state.alternates">
+      <tr :class="{alternative: !!recipe.altName}" v-for="(recipe, index) in state.recipes" :key="index" 
+        v-show="(!recipe.altName || state.alternates) && recipe.ingredients.length > 0">
         <td>
           <input type="checkbox" :checked="recipe.active" @change="onCheckRecipe($event, recipe)"/>
           <span>{{formatName(recipe.name)}}</span>
@@ -66,11 +67,14 @@ export default {
 
           let newIngredients = oldIngredients.map((ingredient) => {
             let nextRecipe = _.find(recipes, {name: ingredient.name, active: true})
+            if (ingredient.quantity < 0) {
+              return ingredient
+            }
             if (!nextRecipe) {
               ingredient.warning = "Couldn't find match"
               return ingredient
             }
-            if (nextRecipe.ingredients.length === 0) { //|| ingredient.quantity < 0
+            if (nextRecipe.ingredients.length === 0 ) { //|| ingredient.quantity < 0
               return ingredient
             }
             return nextRecipe.ingredients.map((ing) => {

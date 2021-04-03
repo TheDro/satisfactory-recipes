@@ -12,7 +12,7 @@ let recipes = [{
     ingredients: [{name: 'aluminumIngot', quantity: 1},{name: 'copperIngot', quantity: 1/3}],
 },{
     name: 'aluminaSolution',
-    ingredients: [{name: 'bauxite', quantity: 1},{name: 'water', quantity: 1.5},{name: 'silica', quantity: -5/12}],
+    ingredients: [{name: 'bauxite', quantity: 120/120},{name: 'water', quantity: 180/120},{name: 'silica', quantity: -50/120}],
 },{
     name: 'aluminumCasing',
     ingredients: [{name: 'aluminumIngot', quantity: 1.5}],
@@ -21,7 +21,7 @@ let recipes = [{
     ingredients: [{name: 'aluminumScrap', quantity: 1.5},{name: 'silica', quantity: 5/4}],
 },{
     name: 'aluminumScrap',
-    ingredients: [{name: 'aluminaSolution', quantity: 2/3},{name: 'coal', quantity: 1/3},{name: 'water', quantity: -1/3}],
+    ingredients: [{name: 'aluminaSolution', quantity: 240/360},{name: 'coal', quantity: 120/360},{name: 'water', quantity: -120/360}],
 },{
     name: 'assemblyDirectorSystem',
     ingredients: [{name: 'adaptiveControlUnit', quantity: 2},{name: 'supercomputer', quantity: 1}],
@@ -30,7 +30,7 @@ let recipes = [{
     ingredients: [{name: 'stator', quantity: 1},{name: 'cable', quantity: 20}],
 },{
     name: 'battery',
-    ingredients: [{name: 'sulfuricAcid', quantity: 3},{name: 'aluminaSolution', quantity: 2},{name: 'aluminumCasing', quantity: 1}],
+    ingredients: [{name: 'sulfuricAcid', quantity: 60/20},{name: 'aluminaSolution', quantity: 40/20},{name: 'aluminumCasing', quantity: 20/20},{name: 'water', quantity: -40/20}],
 },{
     name: 'bauxite',
     ingredients: [],
@@ -92,6 +92,15 @@ let recipes = [{
     name: 'encasedIndustrialBeam',
     ingredients: [{name: 'concrete', quantity: 5},{name: 'steelBeam', quantity: 4}],
 },{
+    name: 'encasedUraniumCell',
+    ingredients: [{name: 'uranium', quantity: 50/25},{name: 'concrete', quantity: 15/25},{name: 'sulfuricAcid', quantity: 40/25},{name: 'sulfuricAcid', quantity: -10/25}],
+},{
+    name: 'encasedPlutoniumCell',
+    ingredients: [{name: 'plutoniumPellet', quantity: 10/5},{name: 'concrete', quantity: 20/5}],
+},{
+    name: 'fuel',
+    ingredients: [{name: 'crudeOil', quantity: 60/40},{name: 'polymerResin', quantity: -30/40}],
+},{
     name: 'fusedModularFrame',
     ingredients: [{name: 'heavyModularFrame', quantity: 1},{name: 'aluminumCasing', quantity: 50},{name: 'nitrogenGas', quantity: 25}],
 },{
@@ -134,11 +143,23 @@ let recipes = [{
     name: 'motor',
     ingredients: [{name: 'rotor', quantity: 2},{name: 'stator', quantity: 2}],
 },{
+    name: 'nitricAcid',
+    ingredients: [{name: 'nitrogenGas', quantity: 240/60},{name: 'water', quantity: 60/60},{name: 'ironPlate', quantity: 10/60}],
+  },{
     name: 'nitrogenGas',
     ingredients: [],
-},{
+  },{
+    name: 'nonFissileUranium',
+    ingredients: [{name: 'nuclearWaste', quantity: 75/50},{name: 'nitricAcid', quantity: 15/50},{name: 'sulfuricAcid', quantity: 30/50},{name: 'silica', quantity: 25/50},{name: 'water', quantity: -15/50}],
+  },{
+    name: 'nuclearFuelRod',
+    ingredients: [{name: 'encasedUraniumCell', quantity: 20/0.4},{name: 'encasedIndustrialBeam', quantity: 1.2/0.4},{name: 'electromagneticControlRod', quantity: 2/0.4}],
+  },{
     name: 'nuclearPasta',
     ingredients: [{name: 'copperPowder', quantity: 200},{name: 'pressureConversionCube', quantity: 1}],
+  },{
+    name: 'nuclearWaste',
+    ingredients: [{name: 'nuclearFuelRod', quantity: 0.2/20}],
 },{
     name: 'petroleumCoke',
     ingredients: [{name: 'heavyOilResidue', quantity: 1/3}],
@@ -146,8 +167,20 @@ let recipes = [{
     name: 'plastic',
     ingredients: [{name: 'crudeOil', quantity: 3/2}],
 },{
+    name: 'plutoniumFuelRod',
+    ingredients: [{name: 'encasedPlutoniumCell', quantity: 7.5/0.25},{name: 'steelBeam', quantity: 4.5/0.25},{name: 'electromagneticControlRod', quantity: 1.5/0.25},{name: 'heatSink', quantity: 2.5/0.25}],
+},{
+    name: 'plutoniumPellet',
+    ingredients: [{name: 'nonFissileUranium', quantity: 100/30},{name: 'nuclearWaste', quantity: 50/30}],
+},{
     name: 'pressureConversionCube',
     ingredients: [{name: 'fusedModularFrame', quantity: 1},{name: 'radioControlUnit', quantity: 2}],
+},{
+  name: 'quartzCrystal',
+  ingredients: [{name: 'rawQuartz', quantity: 5/3}],
+},{
+  name: 'quickwire',
+  ingredients: [{name: 'cateriumIngot', quantity: 1/5}],
 },{
     name: 'radioControlUnit',
     ingredients: [{name: 'heatSink', quantity: 4},{name: 'rubber', quantity: 16},{name: 'crystalOscillator', quantity: 1},{name: 'computer', quantity: 1}],
@@ -155,68 +188,68 @@ let recipes = [{
     name: 'rubber',
     ingredients: [{name: 'crudeOil', quantity: 3/2}],
 },{
-    name: 'sulfuricAcid',
-    ingredients: [{name: 'sulfur', quantity: 0.5},{name: 'water', quantity: 0.5}],
+  name: 'reinforcedIronPlate',
+  ingredients: [{name: 'ironPlate', quantity: 6},{name: 'screw', quantity: 12}],
 },{
-    name: 'supercomputer',
-    ingredients: [{name: 'computer', quantity: 2},{name: 'aiLimiter', quantity: 2},{name: 'highSpeedConnector', quantity: 3},{name: 'plastic', quantity: 28}],
+  name: 'rotor',
+  ingredients: [{name: 'ironRod', quantity: 5},{name: 'screw', quantity: 25}],
 },{
-    name: 'thermalPropulsionRocket',
-    ingredients: [{name: 'modularEngine', quantity: 2.5},{name: 'turboMotor', quantity: 1},{name: 'coolingSystem', quantity: 3},{name: 'fusedModularFrame', quantity: 1}],
+  name: 'rawQuartz',
+  ingredients: [],
 },{
-    name: 'turboMotor',
-    ingredients: [{name: 'coolingSystem', quantity: 4},{name: 'radioControlUnit', quantity: 2},{name: 'motor', quantity: 4},{name: 'rubber', quantity: 24}],
+  name: 'screw',
+  ingredients: [{name: 'ironRod', quantity: 1/4}],
 },{
-    name: 'quartzCrystal',
-    ingredients: [{name: 'rawQuartz', quantity: 5/3}],
+  name: 'silica',
+  ingredients: [{name: 'rawQuartz', quantity: 3/5}],
 },{
-    name: 'quickwire',
-    ingredients: [{name: 'cateriumIngot', quantity: 1/5}],
+  name: 'smartPlating',
+  ingredients: [{name: 'reinforcedIronPlate', quantity: 1},{name: 'rotor', quantity: 1}],
 },{
-    name: 'reinforcedIronPlate',
-    ingredients: [{name: 'ironPlate', quantity: 6},{name: 'screw', quantity: 12}],
+  name: 'steelIngot',
+  ingredients: [{name: 'ironOre', quantity: 1}, {name: 'coal', quantity: 1}],
 },{
-    name: 'rotor',
-    ingredients: [{name: 'ironRod', quantity: 5},{name: 'screw', quantity: 25}],
+  name: 'stator',
+  ingredients: [{name: 'steelPipe', quantity: 3},{name: 'copperWire', quantity: 8}],
 },{
-    name: 'rawQuartz',
-    ingredients: [],
+  name: 'steelBeam',
+  ingredients: [{name: 'steelIngot', quantity: 4}],
 },{
-    name: 'screw',
-    ingredients: [{name: 'ironRod', quantity: 1/4}],
+  name: 'steelPipe',
+  ingredients: [{name: 'steelIngot', quantity: 3/2}],
 },{
-    name: 'silica',
-    ingredients: [{name: 'rawQuartz', quantity: 3/5}],
+  name: 'sulfur',
+  ingredients: [],
 },{
-    name: 'smartPlating',
-    ingredients: [{name: 'reinforcedIronPlate', quantity: 1},{name: 'rotor', quantity: 1}],
+  name: 'sulfuricAcid',
+  ingredients: [{name: 'sulfur', quantity: 0.5},{name: 'water', quantity: 0.5}],
 },{
-    name: 'steelIngot',
-    ingredients: [{name: 'ironOre', quantity: 1}, {name: 'coal', quantity: 1}],
+  name: 'supercomputer',
+  ingredients: [{name: 'computer', quantity: 2},{name: 'aiLimiter', quantity: 2},{name: 'highSpeedConnector', quantity: 3},{name: 'plastic', quantity: 28}],
 },{
-    name: 'stator',
-    ingredients: [{name: 'steelPipe', quantity: 3},{name: 'copperWire', quantity: 8}],
+  name: 'thermalPropulsionRocket',
+  ingredients: [{name: 'modularEngine', quantity: 2.5},{name: 'turboMotor', quantity: 1},{name: 'coolingSystem', quantity: 3},{name: 'fusedModularFrame', quantity: 1}],
 },{
-    name: 'steelBeam',
-    ingredients: [{name: 'steelIngot', quantity: 4}],
-},{
-    name: 'steelPipe',
-    ingredients: [{name: 'steelIngot', quantity: 3/2}],
-},{
-    name: 'sulfur',
-    ingredients: [],
+  name: 'turboMotor',
+  ingredients: [{name: 'coolingSystem', quantity: 4},{name: 'radioControlUnit', quantity: 2},{name: 'motor', quantity: 4},{name: 'rubber', quantity: 24}],
 },{
     name: 'versatileFramework',
     ingredients: [{name: 'modularFrame', quantity: 1/2},{name: 'steelBeam', quantity: 6}],
 },{
+    name: 'uranium',
+    ingredients: [],
+},{
     name: 'water',
+    ingredients: [],
+},{
+    name: 'wood',
     ingredients: [],
 },
   ////////////////////////// ALTERNATE RECIPES //////////////////////////////////////////////////
 {
   name: 'aluminaSolution',
   altName: 'Sloppy Alumina',
-  ingredients: [{name: 'bauxite', quantity: 150/180}, {name: 'water', quantity: 150/180}]
+  ingredients: [{name: 'bauxite', quantity: 200/240}, {name: 'water', quantity: 200/240}]
 },{
   name: 'aluminumCasing',
   altName: 'Alclad Casing',
